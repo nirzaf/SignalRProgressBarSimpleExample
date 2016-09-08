@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron" style="background-color:white;">
+    <h1>ASP.NET</h1>
+    <p class="lead">SignalR ProcessBar Simple Example</p>
+    <button onclick="StartProcess()" type="button" class="btn btn-primary btn-success">Start the process</button>
+</div>
+
+<script>
+    //CALLING METHOD IN THE CONTROLLER TO DO SOME WORK
+    function StartProcess() {
+        
+        $.getJSON("/Home/LongRunningProcess",
+        {},
+        function (data) {
+            if (!data) {
+                alert("Success");
+            }
+            else
+            {
+                alert(data);
+            }    
+        });
+    }
+
+</script>
